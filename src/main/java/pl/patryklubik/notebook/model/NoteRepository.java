@@ -1,11 +1,23 @@
 package pl.patryklubik.notebook.model;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
+
 
 /**
  * Create by Patryk Łubik on 03.05.2021.
  */
 
-public interface NoteRepository extends JpaRepository<Note, Integer> {
+public interface NoteRepository {
+
+    List<Note> findAll();
+
+    Optional<Note> findById(Integer id);
+
+    Note save(Note entity);
+
+    Optional<Note> deleteNoteById(Integer id);
+
+    boolean existsById(Integer id);
 
 }

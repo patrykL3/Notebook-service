@@ -38,15 +38,16 @@ public class NoteController {
 
     @PutMapping("/{id}")
     ResponseEntity<?> updateNote(@PathVariable int id, @RequestBody @Valid Note toUpdate) {
+
         if(!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
+
         repository.findById(id)
                 .ifPresent(note -> {
                     note.updateFrom(toUpdate);
                     repository.save(note);
                 });
-
         return ResponseEntity.noContent().build();
     }
 
@@ -56,9 +57,8 @@ public class NoteController {
         if(!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
-        repository.findById(id)
-                .ifPresent(repository::delete);
 
+        repository.deleteNoteById(id);
         return ResponseEntity.noContent().build();
     }
 }
