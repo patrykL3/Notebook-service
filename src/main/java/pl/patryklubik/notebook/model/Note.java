@@ -54,4 +54,12 @@ public class Note {
     public void setImportanceFlag(boolean importanceFlag) {
         this.importanceFlag = importanceFlag;
     }
+
+    public void updateFrom(final Note source) {
+
+        title = source.title;
+        description = source.description;
+        importanceFlag = source.importanceFlag;
+    }
+
 }
