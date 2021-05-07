@@ -16,7 +16,7 @@ public interface NoteRepository {
 
     Note save(Note entity);
 
-    Optional<Note> deleteNoteById(Integer id);
+    void deleteById(Integer id);
 
     boolean existsById(Integer id);
 

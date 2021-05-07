@@ -58,7 +58,7 @@ public class NoteController {
             return ResponseEntity.notFound().build();
         }
 
-        repository.deleteNoteById(id);
+        repository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 }
