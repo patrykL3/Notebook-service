@@ -1,5 +1,3 @@
-
-
 spring:
   .h2.console:
     enabled: true
@@ -9,4 +7,5 @@ spring:
     url: 'jdbc:h2:C:/Users/Public/notesDB'
     username: 'sa'
 
-
+  .jpa:
+    database-platform: org.hibernate.dialect.H2Dialect

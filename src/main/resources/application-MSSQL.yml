@@ -1,0 +1,9 @@
+spring:
+
+  .datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: 'jdbc:sqlserver://localhost:1433;databaseName=notesDB'
+    username: 'sa'
+
+  .jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
