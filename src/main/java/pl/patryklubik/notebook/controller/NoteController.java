@@ -24,13 +24,13 @@ public class NoteController {
         this.repository = repository;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     ResponseEntity<List<Note>> getAllNotes () {
 
         return ResponseEntity.ok(repository.findAll());
     }
 
-    @PostMapping("/add")
+    @PostMapping
     ResponseEntity<Note> createNote(@RequestBody @Valid Note toCreate) {
         Note result = repository.save(toCreate);
         return ResponseEntity.created(URI.create("/" + result.getId())).body(result);
@@ -51,7 +51,7 @@ public class NoteController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<?> deleteNote(@PathVariable int id) {
 
         if(!repository.existsById(id)) {
