@@ -37,7 +37,7 @@ public class NoteController {
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<?> updateNote(@PathVariable int id, @RequestBody @Valid Note toUpdate) {
+    ResponseEntity<?> updateNote(@PathVariable String id, @RequestBody @Valid Note toUpdate) {
 
         if(!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
@@ -52,7 +52,7 @@ public class NoteController {
     }
 
     @DeleteMapping("/{id}")
-    ResponseEntity<?> deleteNote(@PathVariable int id) {
+    ResponseEntity<?> deleteNote(@PathVariable String id) {
 
         if(!repository.existsById(id)) {
             return ResponseEntity.notFound().build();

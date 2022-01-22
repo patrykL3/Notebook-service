@@ -9,4 +9,4 @@ spring:
     hibernate.ddl-auto: validate
 
 
-  .profiles.active: PostgresSQL
+  .profiles.active: Mongo

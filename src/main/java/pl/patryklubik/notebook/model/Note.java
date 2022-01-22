@@ -2,8 +2,10 @@ package pl.patryklubik.notebook.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 
@@ -13,13 +15,14 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "notes")
+//@Entity
+@Document
+//@Table (name = "notes")
 public class Note {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
     @NotBlank(message = "Notes title must not be null")
     private String title;
     @NotBlank(message = "Notes description must not be null")

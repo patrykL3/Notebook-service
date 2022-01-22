@@ -1,5 +1,7 @@
 package pl.patryklubik.notebook.model;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -7,17 +9,16 @@ import java.util.Optional;
 /**
  * Create by Patryk Łubik on 03.05.2021.
  */
-
-public interface NoteRepository {
+public interface NoteRepository extends MongoRepository<Note, String> {
 
     List<Note> findAll();
 
-    Optional<Note> findById(Integer id);
+    Optional<Note> findById(String id);
 
     Note save(Note entity);
 
-    void deleteById(Integer id);
+    void deleteById(String id);
 
-    boolean existsById(Integer id);
+    boolean existsById(String id);
 
 }
